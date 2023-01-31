@@ -10,6 +10,10 @@ export function Header() {
 
   const navigate = useNavigate()
 
+  const handleSubmit = () => {
+    navigate("/search?keyword=test")
+  }
+
   return (
     <Styles.Container>
       <div>
@@ -36,13 +40,13 @@ export function Header() {
           <FaRegUser />
         </Button>
 
-      <form className="search-wrapper">
+      <form className="search-wrapper" onSubmit={handleSubmit}>
         <input
           type="text"
           placeholder="Pesquise um filme"
         />
 
-        <Button style={{ borderRadius: "0 4px 4px 0"}}>Pesquisar</Button>
+        <Button style={{ borderRadius: "0 4px 4px 0"}} type="submit">Pesquisar</Button>
       </form>
     </Styles.Container>
   )
