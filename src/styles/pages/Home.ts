@@ -70,4 +70,8 @@ export const Container = styled.main`
       }
     }
   }
+
+  .login {
+    margin-top: 70px;
+  }
 `
