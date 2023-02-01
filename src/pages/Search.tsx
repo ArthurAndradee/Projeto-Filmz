@@ -4,8 +4,10 @@ import { useSearchParams } from "react-router-dom"
 import * as Styles from "../styles/pages/Search"
 import { useState } from "react"
 import { MovieCard } from "../components/Moviecard"
+import { Loading } from "../components/Loading"
 
 export function Search() {
+    const [isLoading, setIsLoading] = useState(true)
     const [keyword] = useSearchParams()
 
     const [movies, setMovies] = useState([])
@@ -18,6 +20,8 @@ export function Search() {
             }
         }).then((response) => {
             setMovies(response.data.results)
+        }).finally(() => {
+            setIsLoading(false)
         })
     }, [keyword.get("keyword")])
 
@@ -30,14 +34,16 @@ export function Search() {
                 </h3>
 
                 <div className="cards">
-                    {
+                    {isLoading? (
+                        <Loading />
+                    ) : (
                         movies.map((movie) => (
                         <MovieCard
                           key={movie.id}
                           movie={movie}
                           className="card"
                         />
-                        ))
+                        )))
                     }
                 </div>
             </section>

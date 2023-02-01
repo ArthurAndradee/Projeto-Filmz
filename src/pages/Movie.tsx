@@ -2,7 +2,7 @@ import {useState, useEffect} from 'react'
 import { useParams } from 'react-router-dom'
 
 import {FiLink, FiPlus, FiCameraOff, FiCheck} from 'react-icons/fi'
-import { IMovieRequestProps } from '../interface/Movie'
+import { IMovieRequestProps } from "../interfaces/movie"
 
 import { Button } from "../components/Button"
 import { ButtonVariants } from '../components/Button/types'
@@ -59,7 +59,7 @@ export function Movie() {
   <Styles.Container>
     {isLoading ? (
       <div className="loading-wrapper">
-        Loading
+        <Loading />
       </div>
     ) : (
       <section id="presentation">
