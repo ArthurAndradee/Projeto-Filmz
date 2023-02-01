@@ -25,8 +25,8 @@ export function Search() {
         <Styles.Container>
             <section id="movies">
                 <h3>{movies.length + " "} 
-                 resultado{movies.length > 1 ? "s " : ""} 
-                 encontrado{movies.length > 1 ? "s " : ""} 
+                 resultado{movies.length > 1 ? "s " : " "} 
+                 encontrado{movies.length > 1 ? "s " : " "} 
                 </h3>
 
                 <div className="cards">
